@@ -1,0 +1,765 @@
+<!DOCTYPE html><html><head>
+      <title>IntroJulia</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/kausb/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.5/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="intro-and-julia-basics">Intro and Julia basics</h1>
+
+<p><em>JGU Mainz, Geophysical Modelling, WS 22/23</em></p>
+<h2 class="mume-header" id="1-introduction">1. Introduction</h2>
+
+<p>In this class, we will use the geodynamics code LaMEM to solve geoscientific problems. LaMEM was developed in Mainz and solves the governing equations (conservation of mass, momentum and energy) using a staggered finite difference method and a marker-in-cell approach using non-linear visco-elasto-plastic rheologies. It is one of the most advanced codes available at the moment and is fully parallel and 3D even when we will not use much of that capabilities during the semester.</p>
+<p>What you will mostly be busy with at the beginning of the semester is to create a model setup. This is described on the LaMEM wiki page. For simple geometries you can use the build-in geometry tools but for more complicated cases it is useful to use either Octave (or MATLAB if you happen to have a license) or Julia to create the model setup.</p>
+<p>In the past we have mostly used Octave/MATLAB but this has several disadvantages, because octave doesn&apos;t work well on all systems and MATLAB costs money and is not installed on many larger computer clusters. Moreover, they are both slow and don&apos;t work well in parallel. A recent alternative is the Julia scientific programming language, which is fast, completely open source and comes with a nice package manager.  It works on essentially all systems and has an extremely active user base. Moreover programming in julia is very similar to using MATLAB, so it will not be a big change for many of you.  As a result, we are slowly transitioning the codes in our research group to julia.</p>
+<p>We are assuming that you are not yet familiar with Julia. The purpose of these exercises is therefore to give you a crash course in how to install it on your system, create a few programs, make plots etc.</p>
+<h2 class="mume-header" id="2-installing-julia">2. Installing Julia</h2>
+
+<p>The best way to start is to download a recent version of julia (1.6.3) from <a href="https://julialang.org">https://julialang.org</a> (use a binary installer).<br>
+The recommended debugger for julia is <a href="https://code.visualstudio.com">Microsoft Visual Studio Code</a>, where you should install the julia <a href="https://marketplace.visualstudio.com/items?itemName=julialang.language-julia">extension</a>. See <a href="https://code.visualstudio.com/docs/languages/julia">this</a> page for more info.</p>
+<p>Once this is done (in the order indicated above), you can start the Julia REPL (which stands for <code>read-eval-print-loop</code>, similar to the command window in MATLAB) by typing in the Command Palette (which you find in VS Code under the menu View-&gt;Command Palette):</p>
+<pre data-role="codeBlock" data-info class="language-"><code>&gt;Julia: Start REPL
+</code></pre><p>This will take a bit of time initially, as it needs to compile. Once that is done, you should see the following:</p>
+<p><img src="julia_init.png" alt></p>
+<h2 class="mume-header" id="3-first-steps">3. First steps</h2>
+
+<p>Let&apos;s start with some simple calculations within the <code>REPL</code></p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> <span class="token number">2</span><span class="token operator">+</span><span class="token number">3</span>
+julia<span class="token operator">&gt;</span> <span class="token number">3</span><span class="token operator">*</span><span class="token number">4</span>
+julia<span class="token operator">&gt;</span> <span class="token number">5</span><span class="token operator">^</span><span class="token number">2</span>
+</pre><p>Powers are performed before division and multiplication, which are done<br>
+before subtraction and addition.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> <span class="token number">2</span><span class="token operator">+</span><span class="token number">3</span><span class="token operator">*</span><span class="token number">4</span><span class="token operator">^</span><span class="token number">2</span>
+</pre><p>The arrow keys allow &apos;command-line editing&apos; which cuts down on the amount of typing required, and allows easy error correction. Press the &quot;up&quot; arrow, and add <code>/2</code>. What will this produce?</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> <span class="token number">2</span><span class="token operator">+</span><span class="token number">3</span><span class="token operator">*</span><span class="token number">4</span><span class="token operator">^</span><span class="token number">2</span><span class="token operator">/</span><span class="token number">2</span>
+</pre><p>Parentheses may be used to group terms, or to make them more readable.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">3</span><span class="token operator">*</span><span class="token number">4</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span>
+</pre><p>The equality sign is used to assign values to variables.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token number">3</span>
+julia<span class="token operator">&gt;</span> b <span class="token operator">=</span> a<span class="token operator">^</span><span class="token number">2</span>
+julia<span class="token operator">&gt;</span> a<span class="token operator">/</span>b
+</pre><p>If no other name is given, an answer is saved in a variable named <code>ans</code></p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a<span class="token operator">/</span>b
+<span class="token number">3.0</span>
+
+julia<span class="token operator">&gt;</span> ans
+<span class="token number">3.0</span>
+
+julia<span class="token operator">&gt;</span> c<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>ans
+<span class="token number">6.0</span>
+
+julia<span class="token operator">&gt;</span> ans
+<span class="token number">6.0</span>
+</pre><p>Sofar we worked with scalar values. We can always determine the type of a value with</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> typeof<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+Int64
+</pre><p>which shows that <code>a</code> is an integer value.<br>
+If we define <code>a</code> as:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token number">2.1</span>
+julia<span class="token operator">&gt;</span> typeof<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+Float64
+</pre><p>which shows that now <code>a</code> is a double precision number.</p>
+<h4 class="mume-header" id="31-vectors">3.1 Vectors</h4>
+
+<p>Sofar we dealt with scalar values. Working with vectors in Julia is simple:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">2</span>
+<span class="token number">0.0</span><span class="token punctuation">:</span><span class="token number">0.1</span><span class="token punctuation">:</span><span class="token number">2.0</span>
+</pre><p>We can retrieve a particular value in the vector <code>x</code> by using square brackets:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> x<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token number">0.2</span>
+</pre><p>Arrays in julia start at 1:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token number">0.0</span>
+</pre><p>You can perform computations with <code>x</code>:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> y <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token operator">+</span> <span class="token number">1</span>
+<span class="token number">21</span><span class="token operator">-</span>element Vector<span class="token punctuation">{</span>Float64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">0.0</span>
+ <span class="token number">0.010000000000000002</span>
+ <span class="token number">0.04000000000000001</span>
+ <span class="token number">0.09</span>
+ <span class="token number">0.16000000000000003</span>
+ <span class="token number">0.25</span>
+ <span class="token number">0.36</span>
+ <span class="token number">0.48999999999999994</span>
+ &#x22EE;
+ <span class="token number">1.9599999999999997</span>
+ <span class="token number">2.25</span>
+ <span class="token number">2.5600000000000005</span>
+ <span class="token number">2.8899999999999997</span>
+ <span class="token number">3.24</span>
+ <span class="token number">3.61</span>
+ <span class="token number">4.0</span>
+</pre><p>Note the dot <code>.</code> here, which tells julia that every entry of <code>x</code> should be squared and <code>1</code> is added.<br>
+If you want a vector with values, they should be separated by commas:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1.2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+<span class="token number">4</span><span class="token operator">-</span>element Vector<span class="token punctuation">{</span>Float64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">1.2</span>
+ <span class="token number">3.0</span>
+ <span class="token number">5.0</span>
+ <span class="token number">6.0</span>
+</pre><h4 class="mume-header" id="32-matrixes">3.2 Matrixes</h4>
+
+<p>A matrix in julia can be defined as</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token number">4</span> <span class="token number">5</span> <span class="token number">6</span><span class="token punctuation">]</span>
+<span class="token number">2</span>&#xD7;<span class="token number">3</span> Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">1</span>  <span class="token number">2</span>  <span class="token number">3</span>
+ <span class="token number">4</span>  <span class="token number">5</span>  <span class="token number">6</span>
+</pre><p>Note that the elements of a matrix being entered are enclosed by brackets; a matrix is entered in &quot;row-major order&quot; (i.e. all of the first row, then all of the second row, etc); rows are separated by a semicolon (or a newline), and the elements of the row should be separated by a space.</p>
+<p>The element in the i&apos;th row and j&apos;th column of <code>a</code> is referred to in the usual way:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token number">2</span>
+</pre><p>The transpose of a matrix is the result of interchanging rows and columns.<br>
+Julia denotes the transpose by folowing the matrix with the single-quote [apostrophe].</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a<span class="token operator">&apos;</span>
+<span class="token number">3</span>&#xD7;<span class="token number">2</span> adjoint<span class="token punctuation">(</span><span class="token punctuation">::</span>Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">)</span> with eltype Int64<span class="token punctuation">:</span>
+ <span class="token number">1</span>  <span class="token number">4</span>
+ <span class="token number">2</span>  <span class="token number">5</span>
+ <span class="token number">3</span>  <span class="token number">6</span>
+</pre><p>New matrices may be formed out of old ones, in many ways.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> c <span class="token operator">=</span> <span class="token punctuation">[</span>a<span class="token punctuation">;</span> <span class="token number">7</span> <span class="token number">8</span> <span class="token number">9</span><span class="token punctuation">]</span>
+<span class="token number">3</span>&#xD7;<span class="token number">3</span> Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">1</span>  <span class="token number">2</span>  <span class="token number">3</span>
+ <span class="token number">4</span>  <span class="token number">5</span>  <span class="token number">6</span>
+ <span class="token number">7</span>  <span class="token number">8</span>  <span class="token number">9</span>
+julia<span class="token operator">&gt;</span> <span class="token punctuation">[</span>a<span class="token punctuation">;</span> a<span class="token punctuation">;</span> a<span class="token punctuation">]</span>
+<span class="token number">6</span>&#xD7;<span class="token number">3</span> Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">1</span>  <span class="token number">2</span>  <span class="token number">3</span>
+ <span class="token number">4</span>  <span class="token number">5</span>  <span class="token number">6</span>
+ <span class="token number">1</span>  <span class="token number">2</span>  <span class="token number">3</span>
+ <span class="token number">4</span>  <span class="token number">5</span>  <span class="token number">6</span>
+ <span class="token number">1</span>  <span class="token number">2</span>  <span class="token number">3</span>
+ <span class="token number">4</span>  <span class="token number">5</span>  <span class="token number">6</span>
+julia<span class="token operator">&gt;</span> <span class="token punctuation">[</span>a a a<span class="token punctuation">]</span>
+<span class="token number">2</span>&#xD7;<span class="token number">9</span> Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">1</span>  <span class="token number">2</span>  <span class="token number">3</span>  <span class="token number">1</span>  <span class="token number">2</span>  <span class="token number">3</span>  <span class="token number">1</span>  <span class="token number">2</span>  <span class="token number">3</span>
+ <span class="token number">4</span>  <span class="token number">5</span>  <span class="token number">6</span>  <span class="token number">4</span>  <span class="token number">5</span>  <span class="token number">6</span>  <span class="token number">4</span>  <span class="token number">5</span>  <span class="token number">6</span>
+</pre><p>There are many built.-in matrix constructions. Here are a few:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> rand<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token number">1</span>&#xD7;<span class="token number">3</span> Matrix<span class="token punctuation">{</span>Float64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">0.0398622</span>  <span class="token number">0.229126</span>  <span class="token number">0.148148</span>
+
+julia<span class="token operator">&gt;</span> rand<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token number">2</span><span class="token operator">-</span>element Vector<span class="token punctuation">{</span>Float64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">0.668085153596309</span>
+ <span class="token number">0.4275013437388613</span>
+
+julia<span class="token operator">&gt;</span> zeros<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token number">3</span><span class="token operator">-</span>element Vector<span class="token punctuation">{</span>Float64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">0.0</span>
+ <span class="token number">0.0</span>
+ <span class="token number">0.0</span>
+
+julia<span class="token operator">&gt;</span> ones<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token number">3</span>&#xD7;<span class="token number">2</span> Matrix<span class="token punctuation">{</span>Float64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">1.0</span>  <span class="token number">1.0</span>
+ <span class="token number">1.0</span>  <span class="token number">1.0</span>
+ <span class="token number">1.0</span>  <span class="token number">1.0</span>
+</pre><p>Use a semicolon to suppress output within the REPL:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> s <span class="token operator">=</span> zeros<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>This is useful, when working with large matrices.</p>
+<p>An often used part of Julia is the &apos;colon operator,&apos; which produces a list.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> <span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token number">3</span>
+<span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token number">3</span>
+</pre><p>The default increment is by 1, but that can be changed.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> x<span class="token operator">=</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token number">.4</span><span class="token punctuation">:</span><span class="token number">3</span>
+</pre><p>This can be read: <code>x</code> is the name of the list, which begins at -3, and whose entries increase by 0.4, until 3 is surpassed. You may think of <code>x</code> as a list, a vector, or a matrix, whichever you like.</p>
+<p>You may wish use this construction to extract &quot;subvectors,&quot; as follows.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> x<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">]</span>
+julia<span class="token operator">&gt;</span> x<span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">]</span>
+julia<span class="token operator">&gt;</span> x<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">;</span>
+julia<span class="token operator">&gt;</span> x<span class="token punctuation">[</span><span class="token number">40</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token number">60</span><span class="token punctuation">]</span>
+</pre><p>The colon notation can also be combined with the earlier method of constructing matrices.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a<span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">6</span> <span class="token punctuation">;</span> <span class="token number">2</span><span class="token punctuation">:</span><span class="token number">7</span> <span class="token punctuation">;</span> <span class="token number">4</span><span class="token punctuation">:</span><span class="token number">9</span><span class="token punctuation">]</span>
+</pre><p>A very common use of the colon notation is to extract rows, or columns, as a sort of &quot;wild-card&quot; operator which produces a default list. The following command demonstrates this</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> s<span class="token operator">=</span>rand<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> s<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span> 
+<span class="token number">2</span>&#xD7;<span class="token number">3</span> Matrix<span class="token punctuation">{</span>Float64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">0.163274</span>  <span class="token number">0.923631</span>  <span class="token number">0.877122</span>
+ <span class="token number">0.210374</span>  <span class="token number">0.321996</span>  <span class="token number">0.281341</span>
+</pre><p>Matrices may also be constructed by programming. Here is an example, creating a &apos;program loop.&apos;, which shows how</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> A <span class="token operator">=</span> <span class="token punctuation">[</span>i<span class="token operator">/</span>j <span class="token keyword keyword-for">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">,</span>j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">]</span>
+</pre><h2 class="mume-header" id="4-matrix-arithmetic">4. Matrix arithmetic</h2>
+
+<p>If necessary, re-enter the matrices</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token number">4</span> <span class="token number">5</span> <span class="token number">6</span><span class="token punctuation">;</span> <span class="token number">7</span> <span class="token number">8</span> <span class="token number">10</span><span class="token punctuation">]</span>
+julia<span class="token operator">&gt;</span> b<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">&apos;</span>
+</pre><p>Scalars multiply matrices as expected, and matrices may be added in the usual way; both are done &apos;element by element.&apos;</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> <span class="token number">2</span><span class="token operator">*</span>a<span class="token punctuation">,</span> a<span class="token operator">/</span><span class="token number">4</span>
+<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span> <span class="token number">4</span> <span class="token number">6</span><span class="token punctuation">;</span> <span class="token number">8</span> <span class="token number">10</span> <span class="token number">12</span><span class="token punctuation">;</span> <span class="token number">14</span> <span class="token number">16</span> <span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0.25</span> <span class="token number">0.5</span> <span class="token number">0.75</span><span class="token punctuation">;</span> <span class="token number">1.0</span> <span class="token number">1.25</span> <span class="token number">1.5</span><span class="token punctuation">;</span> <span class="token number">1.75</span> <span class="token number">2.0</span> <span class="token number">2.5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</pre><p>Scalars added to matrices require you to add a dot, as</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a<span class="token punctuation">.</span><span class="token operator">+</span><span class="token number">1</span>
+<span class="token number">3</span>&#xD7;<span class="token number">3</span> Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">2</span>  <span class="token number">3</span>   <span class="token number">4</span>
+ <span class="token number">5</span>  <span class="token number">6</span>   <span class="token number">7</span>
+ <span class="token number">8</span>  <span class="token number">9</span>  <span class="token number">11</span>
+</pre><p>Matrix multiplication requires that the sizes match. If they don&apos;t, an error message is generated.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a<span class="token operator">*</span>b
+<span class="token number">3</span>&#xD7;<span class="token number">1</span> Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+  <span class="token number">6</span>
+ <span class="token number">15</span>
+ <span class="token number">25</span>
+julia<span class="token operator">&gt;</span> a<span class="token operator">*</span>b<span class="token operator">&apos;</span>
+ERROR<span class="token punctuation">:</span> DimensionMismatch<span class="token punctuation">(</span><span class="token string">&quot;matrix A has dimensions (3,3), matrix B has dimensions (1,3)&quot;</span><span class="token punctuation">)</span>
+Stacktrace<span class="token punctuation">:</span>
+ <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> _generic_matmatmul<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">::</span>Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">,</span> tA<span class="token punctuation">::</span>Char<span class="token punctuation">,</span> tB<span class="token punctuation">::</span>Char<span class="token punctuation">,</span> A<span class="token punctuation">::</span>Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">,</span> B<span class="token punctuation">::</span>Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">,</span> _add<span class="token punctuation">::</span>LinearAlgebra<span class="token punctuation">.</span>MulAddMul<span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> Bool<span class="token punctuation">,</span> Bool<span class="token punctuation">}</span><span class="token punctuation">)</span>
+   @ LinearAlgebra <span class="token operator">/</span>Users<span class="token operator">/</span>julia<span class="token operator">/</span>buildbot<span class="token operator">/</span>worker<span class="token operator">/</span>package_macos64<span class="token operator">/</span>build<span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>julia<span class="token operator">/</span>stdlib<span class="token operator">/</span>v1<span class="token punctuation">.</span><span class="token number">6</span><span class="token operator">/</span>LinearAlgebra<span class="token operator">/</span>src<span class="token operator">/</span>matmul<span class="token punctuation">.</span>jl<span class="token punctuation">:</span><span class="token number">814</span>
+ <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> generic_matmatmul<span class="token operator">!</span><span class="token punctuation">(</span>C<span class="token punctuation">::</span>Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">,</span> tA<span class="token punctuation">::</span>Char<span class="token punctuation">,</span> tB<span class="token punctuation">::</span>Char<span class="token punctuation">,</span> A<span class="token punctuation">::</span>Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">,</span> B<span class="token punctuation">::</span>Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">,</span> _add<span class="token punctuation">::</span>LinearAlgebra<span class="token punctuation">.</span>MulAddMul<span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> Bool<span class="token punctuation">,</span> Bool<span class="token punctuation">}</span><span class="token punctuation">)</span>
+   @ LinearAlgebra <span class="token operator">/</span>Users<span class="token operator">/</span>julia<span class="token operator">/</span>buildbot<span class="token operator">/</span>worker<span class="token operator">/</span>package_macos64<span class="token operator">/</span>build<span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>julia<span class="token operator">/</span>stdlib<span class="token operator">/</span>v1<span class="token punctuation">.</span><span class="token number">6</span><span class="token operator">/</span>LinearAlgebra<span class="token operator">/</span>src<span class="token operator">/</span>matmul<span class="token punctuation">.</span>jl<span class="token punctuation">:</span><span class="token number">802</span>
+ <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> mul<span class="token operator">!</span>
+   @ <span class="token operator">/</span>Users<span class="token operator">/</span>julia<span class="token operator">/</span>buildbot<span class="token operator">/</span>worker<span class="token operator">/</span>package_macos64<span class="token operator">/</span>build<span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>julia<span class="token operator">/</span>stdlib<span class="token operator">/</span>v1<span class="token punctuation">.</span><span class="token number">6</span><span class="token operator">/</span>LinearAlgebra<span class="token operator">/</span>src<span class="token operator">/</span>matmul<span class="token punctuation">.</span>jl<span class="token punctuation">:</span><span class="token number">302</span> <span class="token punctuation">[</span>inlined<span class="token punctuation">]</span>
+ <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> mul<span class="token operator">!</span>
+   @ <span class="token operator">/</span>Users<span class="token operator">/</span>julia<span class="token operator">/</span>buildbot<span class="token operator">/</span>worker<span class="token operator">/</span>package_macos64<span class="token operator">/</span>build<span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>julia<span class="token operator">/</span>stdlib<span class="token operator">/</span>v1<span class="token punctuation">.</span><span class="token number">6</span><span class="token operator">/</span>LinearAlgebra<span class="token operator">/</span>src<span class="token operator">/</span>matmul<span class="token punctuation">.</span>jl<span class="token punctuation">:</span><span class="token number">275</span> <span class="token punctuation">[</span>inlined<span class="token punctuation">]</span>
+ <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">*</span><span class="token punctuation">(</span>A<span class="token punctuation">::</span>Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">,</span> B<span class="token punctuation">::</span>Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">)</span>
+   @ LinearAlgebra <span class="token operator">/</span>Users<span class="token operator">/</span>julia<span class="token operator">/</span>buildbot<span class="token operator">/</span>worker<span class="token operator">/</span>package_macos64<span class="token operator">/</span>build<span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>julia<span class="token operator">/</span>stdlib<span class="token operator">/</span>v1<span class="token punctuation">.</span><span class="token number">6</span><span class="token operator">/</span>LinearAlgebra<span class="token operator">/</span>src<span class="token operator">/</span>matmul<span class="token punctuation">.</span>jl<span class="token punctuation">:</span><span class="token number">153</span>
+ <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span> top<span class="token operator">-</span>level scope
+   @ REPL<span class="token punctuation">[</span><span class="token number">107</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token number">1</span>
+</pre><p>A matrix-matrix multiplication is done with:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a<span class="token operator">*</span>a
+<span class="token number">3</span>&#xD7;<span class="token number">3</span> Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+  <span class="token number">30</span>   <span class="token number">36</span>   <span class="token number">45</span>
+  <span class="token number">66</span>   <span class="token number">81</span>  <span class="token number">102</span>
+ <span class="token number">109</span>  <span class="token number">134</span>  <span class="token number">169</span>
+</pre><p>whereas adding a dot performs a pointwise multiplication:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> a<span class="token punctuation">.</span><span class="token operator">*</span>a
+<span class="token number">3</span>&#xD7;<span class="token number">3</span> Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+  <span class="token number">1</span>   <span class="token number">4</span>    <span class="token number">9</span>
+ <span class="token number">16</span>  <span class="token number">25</span>   <span class="token number">36</span>
+ <span class="token number">49</span>  <span class="token number">64</span>  <span class="token number">100</span>
+</pre><h2>5. Adding packages</h2>
+<p>Now it would be nice to create a plot of the results. In order to do so, you first need to install a plotting package. Many excellent are available, with the most widely used ones being <a href="https://docs.juliaplots.org/latest/">Plots.jl</a> and <a href="https://makie.juliaplots.org/stable/">Makie.jl</a></p>
+<p>Before being able to use a package, we first need to install it. Julia has a build-in package manager that automatically takes care of dependencies (that is: other packages that this package may use, including the correct version). You can start the package manager by typing <code>]</code> in the REPL:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> <span class="token punctuation">]</span>
+<span class="token punctuation">(</span>@v1<span class="token punctuation">.</span><span class="token number">6</span><span class="token punctuation">)</span> pkg<span class="token operator">&gt;</span> 
+</pre><p>If you want to go back to the main REPL, use the backspace key.</p>
+<p>As an example, lets install the <code>Plots</code> package:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token punctuation">(</span>@v1<span class="token punctuation">.</span><span class="token number">6</span><span class="token punctuation">)</span> pkg<span class="token operator">&gt;</span> add Plots
+</pre><p>This is will download and precompile all dependencies and will look something like this:<br>
+<img src="julia_add_plots.png" alt><br>
+The plotting package is fairly large so this will take some time, but this only has to be done once.</p>
+<p>Once the installation is done, you can test whether the package works by running the build-in testing suite of that package (which is available for most julia packages):</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token punctuation">(</span>@v1<span class="token punctuation">.</span><span class="token number">6</span><span class="token punctuation">)</span> pkg<span class="token operator">&gt;</span> test Plots
+</pre><p>This should look something like:<br>
+<img src="julia_test.png" alt><br>
+Note that this takes a looong time, depending on your machine. If you get impatient, you can stop this with <code>CTRL-C</code>.</p>
+<p>Once you are done with the package manager, go back to the <code>REPL</code> with the backspace button.</p>
+<h2 class="mume-header" id="6-create-plots">6. Create plots</h2>
+
+<p>Now that the plotting package is install, we are ready to create our first plot. First you load the <code>Plots</code> package</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> <span class="token keyword keyword-using">using</span> Plots
+</pre><p>Next create a plot with</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+</pre><p><img src="plot_1.png" alt></p>
+<p>If you are using VSCode, it should show the plot in a seperate tab as in the figure above.</p>
+<p>We can add labels etc. with:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">2</span>
+julia<span class="token operator">&gt;</span> y<span class="token operator">=</span>x<span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token operator">+</span> <span class="token number">1</span>
+julia<span class="token operator">&gt;</span>  plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span> xlabel<span class="token operator">=</span><span class="token string">&quot;x&quot;</span><span class="token punctuation">,</span> ylabel<span class="token operator">=</span><span class="token string">&quot;y axis&quot;</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">&quot;my first plot&quot;</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token punctuation">:</span>none<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token punctuation">:</span>red<span class="token punctuation">)</span>
+</pre><p>which gives:</p>
+<p><img src="plot_2.png" alt></p>
+<p>There are lots of options within the plotting package.  Have a look at the tutorial <a href="https://docs.juliaplots.org/latest/">here</a>.<br>
+If you are used to work with MATLAB/Octave, here a quick summary of how plotting options are called in the Plots.jl package of julia:</p>
+<table>
+<thead>
+<tr>
+<th>MATLAB/Octave</th>
+<th>Julia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plot(x,y,&apos;r--&apos;)</td>
+<td>plot(x,y,linestyle=:dash, color=:red)</td>
+</tr>
+<tr>
+<td>scatter(x,y)</td>
+<td>scatter(x,y)</td>
+</tr>
+<tr>
+<td>mesh(x,y,z)</td>
+<td>wireframe(x,y,z)</td>
+</tr>
+<tr>
+<td>surf(x,y,z)</td>
+<td>plot(x,y,z,st=:surface)</td>
+</tr>
+<tr>
+<td>pcolor(x,y,z)</td>
+<td>heatmap(x,y,z)</td>
+</tr>
+<tr>
+<td>contour(x,y,z,50)</td>
+<td>contour(x,y,z,level=50)</td>
+</tr>
+<tr>
+<td>contourf(x,y,z)</td>
+<td>contour(x,y,z,level=50,fill=true)</td>
+</tr>
+</tbody>
+</table>
+<h2>7. Functions</h2>
+<p>A function in julia can be defined in an extremely simple manner:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> f<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token operator">+</span> <span class="token number">10</span>
+f <span class="token punctuation">(</span>generic <span class="token keyword keyword-function">function</span> with <span class="token number">1</span> method<span class="token punctuation">)</span>
+</pre><p>You can now use this function with scalars, vectors or arrays:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> f<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token number">110</span>
+julia<span class="token operator">&gt;</span> x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span>
+julia<span class="token operator">&gt;</span> f<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token number">3</span><span class="token operator">-</span>element Vector<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+  <span class="token number">11</span>
+  <span class="token number">14</span>
+  <span class="token number">19</span>
+julia<span class="token operator">&gt;</span> y<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">]</span>
+julia<span class="token operator">&gt;</span> f<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+<span class="token number">2</span>&#xD7;<span class="token number">2</span> Matrix<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">11</span>  <span class="token number">14</span>
+ <span class="token number">19</span>  <span class="token number">26</span>
+</pre><p>Functions ofcourse don&apos;t have to be one-liners, so you can also define it as:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> <span class="token keyword keyword-function">function</span> f1<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+         y <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token operator">+</span> <span class="token number">11</span>
+         <span class="token keyword keyword-return">return</span> y
+       <span class="token keyword keyword-end">end</span>
+f1 <span class="token punctuation">(</span>generic <span class="token keyword keyword-function">function</span> with <span class="token number">1</span> method<span class="token punctuation">)</span>
+</pre><p>This creates a new array <code>y</code> and returns that.</p>
+<p>So how fast is this function? Lets start with defining a large vector:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">1e6</span><span class="token punctuation">;</span>
+</pre><p>It turns out that julia has a handy macro, called <code>@time</code>, with which you can record the time that a function took.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> @time f1<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+  <span class="token number">0.091410</span> seconds <span class="token punctuation">(</span><span class="token number">407.44</span> k allocations<span class="token punctuation">:</span> <span class="token number">31.651</span> MiB<span class="token punctuation">,</span> <span class="token number">9.82</span><span class="token operator">%</span> gc time<span class="token punctuation">,</span> <span class="token number">94.01</span><span class="token operator">%</span> compilation time<span class="token punctuation">)</span>
+<span class="token number">1000000</span><span class="token operator">-</span>element Vector<span class="token punctuation">{</span>Float64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token number">12.0</span>
+ <span class="token number">15.0</span>
+ <span class="token number">20.0</span>
+ <span class="token number">27.0</span>
+ <span class="token number">36.0</span>
+ <span class="token number">47.0</span>
+ <span class="token number">60.0</span>
+ <span class="token number">75.0</span>
+ <span class="token number">92.0</span>
+  &#x22EE;
+  <span class="token number">9.9998600006e11</span>
+  <span class="token number">9.99988000047e11</span>
+  <span class="token number">9.99990000036e11</span>
+  <span class="token number">9.99992000027e11</span>
+  <span class="token number">9.9999400002e11</span>
+  <span class="token number">9.99996000015e11</span>
+  <span class="token number">9.99998000012e11</span>
+  <span class="token number">1.000000000011e12</span>
+</pre><p>So this took 0.09 seconds on my machine. Yet, the first time any function in julia is executed, it is compiled and that&apos;s why 94% of the time was the compilation time. If we run the same function again, it is much faster and creates 2 allocations:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> @time f1<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+  <span class="token number">0.006275</span> seconds <span class="token punctuation">(</span><span class="token number">2</span> allocations<span class="token punctuation">:</span> <span class="token number">7.629</span> MiB<span class="token punctuation">)</span>
+</pre><p>In general, it is a very good idea to put things in functions within julia, as it allows julia to precompile the routines.<br>
+Also note that you need to restart the <code>REPL</code> or your Julia session every time you redefine a function or a structure.</p>
+<h2>8. Scripts</h2>
+<p>In general, you want to put your code in a julia script so you don&apos;t have to type it always in the REPL. Doing that is simple; you simple save it as a textfile that had has <code>*.jl</code> as an ending.<br>
+A simple example is the following <code>test1.jl</code> script:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token keyword keyword-using">using</span> Plots
+
+<span class="token keyword keyword-function">function</span> rosenbrock<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">;</span> a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>b<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span>
+   xt <span class="token operator">=</span> x<span class="token operator">&apos;</span>     <span class="token comment"># transpose  </span>
+   f  <span class="token operator">=</span> <span class="token punctuation">(</span>a <span class="token punctuation">.</span><span class="token operator">-</span> xt<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token operator">+</span> b<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span>y <span class="token punctuation">.</span><span class="token operator">-</span> xt<span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span>
+   <span class="token keyword keyword-return">return</span> f
+<span class="token keyword keyword-end">end</span>
+
+x <span class="token operator">=</span> range<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2.0</span><span class="token punctuation">,</span><span class="token number">2.0</span><span class="token punctuation">,</span>length<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> range<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1.0</span><span class="token punctuation">,</span><span class="token number">1.5</span><span class="token punctuation">,</span>length<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>
+f <span class="token operator">=</span> rosenbrock<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+
+<span class="token comment"># Create a contourplot</span>
+contour<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>f<span class="token punctuation">,</span> levels<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token number">200</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">,</span> 
+       xlabel<span class="token operator">=</span><span class="token string">&quot;X&quot;</span><span class="token punctuation">,</span> ylabel<span class="token operator">=</span><span class="token string">&quot;y&quot;</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">&quot;rosenbrock&quot;</span><span class="token punctuation">,</span> 
+       color<span class="token operator">=</span><span class="token punctuation">:</span>roma<span class="token punctuation">,</span> clim<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</pre><p>Note that the rosenbrock function has optional parameters (<code>a,b</code>). Calling it with only <code>X,Y</code> will invoke the default parameters, but you can specify the optional ones with <code>f=rosenbrock(x,y, b=200,a=3)</code>.<br>
+You can run this script in the julia in the following way:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">include<span class="token punctuation">(</span><span class="token string">&quot;test1.jl&quot;</span><span class="token punctuation">)</span>
+</pre><p>Be aware that you need to be in the same directory as the script (see below on how you can change directories using the build-in shell in julia, by typing <code>;</code> in the REPL).<br>
+The result looks like (have a look at how we customized the colormap, and added info for the axes).<br>
+<img src="2021-10-13-14-43-15.png" alt></p>
+<h2>9. Help</h2>
+<p>In general, you can get help for every function by typing <code>?</code> which brings you to the help terminal. Next type the name of the function.<br>
+For example, lets find out how to compute the average of an array</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span><span class="token punctuation">?</span>mean
+</pre><p>You can add help info to your own functions by adding comments before the function, using <code>&quot;&quot;&quot;</code></p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia"><span class="token string">&quot;&quot;&quot; 
+    y = f2_withhelp(x)
+
+Computes the square of `x` and adds 10 
+
+Example
+=======
+
+julia&gt; x=1:10
+julia&gt; y = f2_withhelp(x)
+10-element Vector{Int64}:
+  11
+  14
+  19
+  26
+  35
+  46
+  59
+  74
+  91
+ 110
+&quot;&quot;&quot;</span>
+<span class="token keyword keyword-function">function</span> f2_withhelp<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    y <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token operator">+</span> <span class="token number">10</span>
+    <span class="token keyword keyword-return">return</span> y
+<span class="token keyword keyword-end">end</span>
+</pre><h4>9.1 Build-in terminal</h4>
+<p>Julia has a build in terminal, which you can reach by typing <code>;</code>. This comes in handy if you want to check in which directory you are, change directories, or look at the files there.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+shell<span class="token operator">&gt;</span> pwd
+<span class="token operator">/</span>Users<span class="token operator">/</span>kausb
+</pre><p>Note that this invokes the default terminal on your operating system, so under windows the commands are a but different than under linux.<br>
+Once you are done with the terminal, you get back to the <code>REPL</code>, by using the backspace.</p>
+<h4 class="mume-header" id="92-online-help">9.2 Online help</h4>
+
+<p>The official julia <a href="https://docs.julialang.org/en/v1/">manual</a> is a good place to start. Many of the julia packages are hosted on github and have help pages as well. An example, which we will use in this class, is <a href="https://github.com/JuliaGeodynamics/GeophysicalModelGenerator.jl">GeophysicalModelGenerator.jl</a></p>
+<p><img src="GMG.png" alt></p>
+<p>If you click on the blue buttons, you will be taken to the help pages. Note that it is quite easy to generate a new package in julia, add tests for that package, and create an online documentation. Doing that goes beyond the scope of this class, but if you are interested you can ask us or look at the julia manual.</p>
+<h2 class="mume-header" id="10-setting-properties-on-markers">10. Setting properties on markers</h2>
+
+<p>A common operation you will do during this class is setting material properties on markers.<br>
+Let&apos;s do some warming-up exercises for that.</p>
+<p>We start with defining the <code>X,Z</code> coordinates of the markers:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> x<span class="token operator">=</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">5</span>
+julia<span class="token operator">&gt;</span> z<span class="token operator">=</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token number">.2</span><span class="token punctuation">:</span><span class="token number">0</span>
+julia<span class="token operator">&gt;</span> X <span class="token operator">=</span> ones<span class="token punctuation">(</span>size<span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span>x<span class="token operator">&apos;</span>
+julia<span class="token operator">&gt;</span> Z <span class="token operator">=</span> z<span class="token operator">*</span>ones<span class="token punctuation">(</span>size<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&apos;</span> 
+julia<span class="token operator">&gt;</span> Phase <span class="token operator">=</span> zeros<span class="token punctuation">(</span>Int64<span class="token punctuation">,</span>size<span class="token punctuation">(</span>X<span class="token punctuation">)</span><span class="token punctuation">)</span> 
+</pre><p><code>Phase</code> is now a 2D array that defined the &quot;rocktype&quot; (or Phase) of ever marker, which is defined by the 2D coordinate arrays <code>X,Z</code>. Hint: you can copy-paste the whole block above tou your julia <code>REPL</code>. It will automatically remove the <code>julia&gt;</code> at the beginning of every line.</p>
+<h4 class="mume-header" id="101-square">10.1 Square</h4>
+
+<p>Now let&#x2019;s assume that all points between x=[-1 .. 1] and z=[-5 .. -4] have a different rock type. We can use that by finding all points that are between these coordinates, using the <code>findall</code> command.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> ind <span class="token operator">=</span> findall<span class="token punctuation">(</span> <span class="token punctuation">(</span>X<span class="token punctuation">.</span><span class="token operator">&gt;</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token operator">&amp;</span>  <span class="token punctuation">(</span>X<span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token operator">&amp;</span> <span class="token punctuation">(</span>Z<span class="token punctuation">.</span><span class="token operator">&gt;</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token operator">&amp;</span> <span class="token punctuation">(</span>Z<span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+julia<span class="token operator">&gt;</span> Phase<span class="token punctuation">[</span>ind<span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token number">1</span>
+</pre><p>Note that you have to add brackets around every statement and that you have to use a dot (<code>.</code>) to indicate that it applies for every entry in the arrays.<br>
+Let&apos;s create a plot of the result:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> <span class="token keyword keyword-using">using</span> Plots
+julia<span class="token operator">&gt;</span> ind <span class="token operator">=</span> findall<span class="token punctuation">(</span>Phase <span class="token punctuation">.</span><span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">)</span>
+julia<span class="token operator">&gt;</span> scatter<span class="token punctuation">(</span>X<span class="token punctuation">[</span>ind<span class="token punctuation">]</span><span class="token punctuation">,</span>Z<span class="token punctuation">[</span>ind<span class="token punctuation">]</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">:</span>blue<span class="token punctuation">,</span> legend<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">,</span> markersize<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+julia<span class="token operator">&gt;</span> ind <span class="token operator">=</span> findall<span class="token punctuation">(</span>Phase <span class="token punctuation">.</span><span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span>
+julia<span class="token operator">&gt;</span> scatter<span class="token operator">!</span><span class="token punctuation">(</span>X<span class="token punctuation">[</span>ind<span class="token punctuation">]</span><span class="token punctuation">,</span>Z<span class="token punctuation">[</span>ind<span class="token punctuation">]</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">:</span>red<span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+</pre><p>Note that we use the exclamation mark (<code>!</code>) to indicate that we want to keep the previous plot.</p>
+<h4 class="mume-header" id="102-circle">10.2 Circle</h4>
+
+<p>Similarly, we can add a circle with radius 2 and center (-2,-6) with</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> xc<span class="token punctuation">,</span>zc <span class="token operator">=</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">6</span>
+julia<span class="token operator">&gt;</span> ind <span class="token operator">=</span> findall<span class="token punctuation">(</span> <span class="token punctuation">(</span>X<span class="token punctuation">.</span><span class="token operator">-</span>xc<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token operator">+</span> <span class="token punctuation">(</span>Z<span class="token punctuation">.</span><span class="token operator">-</span>zc<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token operator">&lt;</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">2</span> <span class="token punctuation">)</span>
+julia<span class="token operator">&gt;</span> Phase<span class="token punctuation">[</span>ind<span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token number">2</span>
+julia<span class="token operator">&gt;</span> id0<span class="token punctuation">,</span> id1<span class="token punctuation">,</span> id2 <span class="token operator">=</span> findall<span class="token punctuation">(</span>Phase<span class="token punctuation">.</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> findall<span class="token punctuation">(</span>Phase<span class="token punctuation">.</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> findall<span class="token punctuation">(</span>Phase<span class="token punctuation">.</span><span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span>
+julia<span class="token operator">&gt;</span> scatter<span class="token punctuation">(</span>X<span class="token punctuation">[</span>id0<span class="token punctuation">]</span><span class="token punctuation">,</span>Z<span class="token punctuation">[</span>id0<span class="token punctuation">]</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">:</span>blue<span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+julia<span class="token operator">&gt;</span> scatter<span class="token operator">!</span><span class="token punctuation">(</span>X<span class="token punctuation">[</span>id1<span class="token punctuation">]</span><span class="token punctuation">,</span>Z<span class="token punctuation">[</span>id1<span class="token punctuation">]</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">:</span>red<span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+julia<span class="token operator">&gt;</span> scatter<span class="token operator">!</span><span class="token punctuation">(</span>X<span class="token punctuation">[</span>id2<span class="token punctuation">]</span><span class="token punctuation">,</span>Z<span class="token punctuation">[</span>id2<span class="token punctuation">]</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">:</span>green<span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="103-polygons">10.3 Polygons</h4>
+
+<p>We can also create more complicated polygons, by first creating the <code>x</code> and <code>z</code> coordinates of the polygon, and subsequently using the inpolygon function, which is part of the <a href="https://github.com/JuliaGeometry/PolygonOps.jl">PolygonOps.jl</a> package, which you&apos;ll have to install first:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> xp<span class="token operator">=</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span>
+julia<span class="token operator">&gt;</span> zp<span class="token operator">=</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">]</span>
+julia<span class="token operator">&gt;</span> <span class="token keyword keyword-using">using</span> PolygonOps
+julia<span class="token operator">&gt;</span> polygon <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>x<span class="token punctuation">,</span>z<span class="token punctuation">]</span> <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span>z<span class="token punctuation">)</span> <span class="token keyword keyword-in">in</span> zip<span class="token punctuation">(</span>xp<span class="token punctuation">,</span>zp<span class="token punctuation">)</span><span class="token punctuation">]</span>
+julia<span class="token operator">&gt;</span> inside <span class="token operator">=</span> <span class="token punctuation">[</span>inpolygon<span class="token punctuation">(</span><span class="token punctuation">[</span>x<span class="token punctuation">,</span>z<span class="token punctuation">]</span><span class="token punctuation">,</span> polygon<span class="token punctuation">)</span> <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span>z<span class="token punctuation">)</span> <span class="token keyword keyword-in">in</span> zip<span class="token punctuation">(</span>X<span class="token punctuation">,</span>Z<span class="token punctuation">)</span><span class="token punctuation">]</span>
+julia<span class="token operator">&gt;</span> Phase<span class="token punctuation">[</span>inside <span class="token punctuation">.</span><span class="token operator">==</span> <span class="token boolean">true</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token number">3</span>
+julia<span class="token operator">&gt;</span> id3 <span class="token operator">=</span> findall<span class="token punctuation">(</span>Phase<span class="token punctuation">.</span><span class="token operator">==</span><span class="token number">3</span><span class="token punctuation">)</span>
+julia<span class="token operator">&gt;</span> scatter<span class="token operator">!</span><span class="token punctuation">(</span>X<span class="token punctuation">[</span>id3<span class="token punctuation">]</span><span class="token punctuation">,</span>Z<span class="token punctuation">[</span>id3<span class="token punctuation">]</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">:</span>yellow<span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> legend<span class="token operator">=</span><span class="token punctuation">:</span>none<span class="token punctuation">)</span>
+</pre><p>The result looks like this:<br>
+<img src="Result_inpolygon.png" alt></p>
+<p>Note that we introduced a new julia concept here, namely inline iterators:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> polygon <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>x<span class="token punctuation">,</span>z<span class="token punctuation">]</span> <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span>z<span class="token punctuation">)</span> <span class="token keyword keyword-in">in</span> zip<span class="token punctuation">(</span>xp<span class="token punctuation">,</span>zp<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token number">6</span><span class="token operator">-</span>element Vector<span class="token punctuation">{</span>Vector<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">:</span>
+ <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">]</span>
+ <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span>
+ <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">7</span><span class="token punctuation">]</span>
+ <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span>
+ <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+ <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">]</span>
+</pre><p>This statement loops over all points in <code>xp,zp</code> and extracts <code>x,z</code> of that point, which it than puts in a vector <code>polygon</code> (which is what <code>PolygonOps</code> wants to have - see the help page of that package).<br>
+Each entry of polygon thus contains the <code>x,z</code> coordinates of the respective point of the polygon:</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> polygon<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token number">2</span><span class="token operator">-</span>element Vector<span class="token punctuation">{</span>Int64<span class="token punctuation">}</span><span class="token punctuation">:</span>
+  <span class="token number">3</span>
+ <span class="token operator">-</span><span class="token number">7</span>
+</pre><h4 class="mume-header" id="104-topography">10.4 Topography</h4>
+
+<p>As a final exercise, lets assume we also have a topography, and we want to set all markers above the topography to be &quot;air&quot;.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> x_topo <span class="token operator">=</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>     <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">2</span><span class="token punctuation">,</span>  <span class="token number">5</span><span class="token punctuation">]</span>
+julia<span class="token operator">&gt;</span> z_topo <span class="token operator">=</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+</pre><p>In this case, we want to know at which elevation the topography is for a given X-coordinate. For that, we can use the <a href="https://github.com/JuliaMath/Interpolations.jl">Interpolations.jl</a> package which provides many (multi-dimensional) interpolation routines.</p>
+<pre data-role="codeBlock" data-info="julia" class="language-julia">julia<span class="token operator">&gt;</span> <span class="token keyword keyword-using">using</span> Interpolations
+julia<span class="token operator">&gt;</span> interp_linear <span class="token operator">=</span> LinearInterpolation<span class="token punctuation">(</span>x_topo<span class="token punctuation">,</span> z_topo<span class="token punctuation">)</span>
+julia<span class="token operator">&gt;</span> Z_topo <span class="token operator">=</span> interp_linear<span class="token punctuation">.</span><span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+julia<span class="token operator">&gt;</span> ind <span class="token operator">=</span> findall<span class="token punctuation">(</span>Z<span class="token punctuation">.</span><span class="token operator">&gt;</span>Z_topo<span class="token punctuation">)</span>
+julia<span class="token operator">&gt;</span> Phase<span class="token punctuation">[</span>ind<span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token number">4</span>
+julia<span class="token operator">&gt;</span> id4 <span class="token operator">=</span> findall<span class="token punctuation">(</span>Phase<span class="token punctuation">.</span><span class="token operator">==</span><span class="token number">4</span><span class="token punctuation">)</span>
+julia<span class="token operator">&gt;</span> scatter<span class="token operator">!</span><span class="token punctuation">(</span>X<span class="token punctuation">[</span>id4<span class="token punctuation">]</span><span class="token punctuation">,</span>Z<span class="token punctuation">[</span>id4<span class="token punctuation">]</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">:</span>lightblue<span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> legend<span class="token operator">=</span><span class="token punctuation">:</span>none<span class="token punctuation">)</span>
+</pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

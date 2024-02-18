@@ -1,0 +1,4 @@
+# GMT 6 Session common arguments shelf
+BEGIN GMT 6.5.0
+R	30.0/30.1/-1.95/-1.92
+END
