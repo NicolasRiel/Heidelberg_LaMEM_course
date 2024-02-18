@@ -2,7 +2,7 @@
 Set of input scripts to readily learn how to create more complex input setup for LaMEM
 
 
-## Explored setups
+## Explored setups (Day 1)
 
 | Falling blocks 3D         | Falling block 2D     |
 |--------------|-----------|
