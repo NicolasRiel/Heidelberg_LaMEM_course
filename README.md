@@ -6,21 +6,21 @@ Set of input scripts to readily learn how to create more complex input setup for
 
 | Falling blocks 3D         | Falling block 2D     |
 |--------------|-----------|
-| <img src="https://github.com/NicolasRiel/LaMEM_course/blob/main/00_falling_block_3D/00_falling_block_3D.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/LaMEM_course/blob/main/01_falling_block_isoviscous/01_falling_block_isoviscous.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
+| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/00_falling_block_3D/00_falling_block_3D.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/01_falling_block_isoviscous/01_falling_block_isoviscous.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
 
-| Falling block - free surface 2D         | Plume emplacement - stagnant LID 2D    |
+<!-- | Falling block - free surface 2D         | Plume emplacement - stagnant LID 2D    |
 |--------------|-----------|
-| <img src="https://github.com/NicolasRiel/LaMEM_course/blob/main/03_T_falling_block_isoviscous_free_surface/03_T-falling_block_iso_viscous_free_surface.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/LaMEM_course/blob/main/04_single_LID_plume/04_single_LID_plume.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
+| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/03_T_falling_block_isoviscous_free_surface/03_T-falling_block_iso_viscous_free_surface.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/04_single_LID_plume/04_single_LID_plume.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
 
 | Folding 2D         | Rifting 2D    |
 |--------------|-----------|
-| <img src="https://github.com/NicolasRiel/LaMEM_course/blob/main/05_folds/05_folds.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/LaMEM_course/blob/main/06_rifting_model_plasticity/06_rifting_model_plasticity.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
+| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/05_folds/05_folds.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/06_rifting_model_plasticity/06_rifting_model_plasticity.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  | -->
 
 
-| Subduction 2D         |    |
+<!-- | Subduction 2D         |    |
 |--------------|-----------|
-| <img src="https://github.com/NicolasRiel/LaMEM_course/blob/main/07_mechanical_subduction/07_mechanical_subduction.gif?raw=true" alt="drawing" width="380" alt="centered image"/> |  <img src="https://github.com/NicolasRiel/LaMEM_course/blob/main/08_Volcano_Askja/08_Volcano_Askja_result.png?raw=true" alt="drawing" width="380" alt="centered image"/> |
-
+| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/07_mechanical_subduction/07_mechanical_subduction.gif?raw=true" alt="drawing" width="380" alt="centered image"/> |  <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/08_Volcano_Askja/08_Volcano_Askja_result.png?raw=true" alt="drawing" width="380" alt="centered image"/> |
+ -->
 
 
 
