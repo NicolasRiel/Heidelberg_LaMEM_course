@@ -23,9 +23,9 @@ keys(data_pt.fields)
 
 nt          = length(data_pt.fields[:ID])
 step        = 1000
-in          = collect(1:step:nt)
-n_traces    = length(in)
-f_pt        = PassiveTracer_Time( in, input, dir)
+in2         = collect(1:step:nt)
+n_traces    = length(in2)
+f_pt        = PassiveTracer_Time( in2, input, dir)
 
 # the following uses PlotlyJS to create an array of traces
 data_plot   = Vector{GenericTrace{Dict{Symbol, Any}}}(undef, n_traces);
