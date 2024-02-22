@@ -3,6 +3,9 @@
 sudo apt-get install imagemagick
 convert -delay 2 -loop 0 *.png 01.gif  -scale 584x626 01_falling_block_isoviscous.gif
 
+# issue with Interpolations
+
+add Interpolations@0.14.7
 
 # LaMEM creep laws list:
 
