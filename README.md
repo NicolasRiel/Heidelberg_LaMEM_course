@@ -1,6 +1,8 @@
-# LaMEM_course
-Set of input scripts to readily learn how to create more complex input setup for LaMEM
+# LaMEM_course Heidelberg (17-21-25)
 
+Set of input scripts to readily learn how to create more complex input setup for LaMEM@0.4.2 (https://github.com/JuliaGeodynamics/LaMEM.jl)
+
+<!--
 # Report
 
 Individual report: 2 pages of text max (figures not included)
@@ -11,41 +13,63 @@ Individual report: 2 pages of text max (figures not included)
 * Discussion/perspectives. What did you learn? How can you improve the models, what would be the next step?
 How do the models compare to a real case?
 
+
 > [!IMPORTANT] 
 >
 > Explore 1 or 2 parameter range
 > 
-> Hand-over March 29th - 2024
+> Hand-over March 31th - 2025
 >
 > Attach the Julia script to your report
+
+-->
+
 
 
 ## Explored setups
 
+### Day 1
+
 | Falling blocks 3D         | Falling block 2D     |
 |--------------|-----------|
-| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/00_falling_block_3D/00_falling_block_3D.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/01_falling_block_isoviscous/01_falling_block_isoviscous.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
+| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/00_falling_block_3D.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/01_falling_block_isoviscous.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
 
+### Day 2 (coming up soon!)
+<!--
 | Falling block - free surface 2D         | Plume emplacement - stagnant LID 2D    |
 |--------------|-----------|
-| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/03_T_falling_block_isoviscous_free_surface/03_T-falling_block_iso_viscous_free_surface.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/04_single_LID_plume/04_single_LID_plume.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
+| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/03_T-falling_block_iso_viscous_free_surface.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/04_single_LID_plume.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
 
 | Folding 2D         | Rifting 2D    |
 |--------------|-----------|
-| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/05_folds/05_folds.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/06_rifting_model_plasticity/06_rifting_model_plasticity.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
+| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/05_folds.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifsy/06_rifting_model_plasticity.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
 
 
- | Subduction 2D         |    |
+ | Subduction 2D         |  Landscape Modelling  |
 |--------------|-----------|
-| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/07_mechanical_subduction/07_mechanical_subduction.gif?raw=true" alt="drawing" width="380" alt="centered image"/> |  <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/08_Volcano_Askja/08_Volcano_Askja_result.png?raw=true" alt="drawing" width="380" alt="centered image"/> |
- 
+| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/07_mechanical_subduction.gif?raw=true" alt="drawing" width="380" alt="centered image"/> |  <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/mountain_landscape.gif?raw=true" alt="drawing" width="380" alt="centered image"/> |
+ -->
+
+## Tools and tipds
+
+####  Introduction for Julia programming language
+
+    Julia_introduction/IntroJulia.md
+
+####  Density diagrams for general rock-types
+
+    phase_diagrams_4_LaMEM/
+
+####  create gif from *.png
+
+    sudo apt-get install imagemagick
+    convert -delay 2 -loop 0 *.png 01.gif  -scale 584x626 gif_name.gif
 
 
+### LaMEM creep laws list
 
-## LaMEM creep laws
 
-
-### Diffusion creep:
+#### Diffusion creep:
 
 [Hirth, G. & Kohlstedt (2003), D. Rheology of the upper mantle and the mantle wedge: A view from the experimentalists]
 
@@ -58,7 +82,7 @@ How do the models compare to a real case?
 + "Dry_Plagioclase_RybackiDresen_2000"
 + "Wet_Plagioclase_RybackiDresen_2000"
 
-### Dislocation creep:
+#### Dislocation creep:
 
 [Ranalli 1995]
 
@@ -125,7 +149,7 @@ How do the models compare to a real case?
 
 + "Polycrystalline_Anhydrite-Mueller_and_Briegel(1978)"
 
-### Peierls creep:
+#### Peierls creep:
 
 [Guyot and Dorn (1967) and Poirier (1985)]
 
