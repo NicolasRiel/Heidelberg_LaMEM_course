@@ -784,7 +784,7 @@ GeoData
  ```
 The structure `Topo` now contains the topography. We can write that into a file format that Paraview can read with:
 ```julia
-julia> Write_Paraview(Topo, "Topo_Kigali")
+julia> write_paraview(Topo, "Topo_Kigali")
 Saved file: Topo_Kigali.vts
 ```
 
@@ -815,7 +815,7 @@ CartData
     z       ϵ [ -4.612 : 4.6205]
     fields  : (:Topography,)
   attributes: ["note"]
-julia> Write_Paraview(Topo_cart, "Topo_cart_EAfrica")
+julia> write_paraview(Topo_cart, "Topo_cart_EAfrica")
 Saved file: Topo_cart_EAfrica.vts
   ```
 This map is easier to deal with. We also get an idea of the size of the map (in kilometers).
