@@ -744,13 +744,13 @@ Let's do some exercise with this, and plot the topography of Kigali. This requir
 ```julia
 julia> using GeophysicalModelGenerator, GMT
 ```
-The function `ImportTopo` can be used to import topography from any part of the world, by specifing the southwest and northeast corners. 
+The function `import_topo` can be used to import topography from any part of the world, by specifing the southwest and northeast corners. 
 If you want to know how it works, ask help:
 ```julia
-julia>?ImportTopo
-search: ImportTopo importWKT
+julia>?import_topo
+search: import_topo importWKT
 
-  Topo = ImportTopo(limits; file::String="@earth_relief_01m.grd")
+  Topo = import_topo(limits; file::String="@earth_relief_01m.grd")
 
   Uses GMT to download the topography of a certain region, specified with limits=[lonmin, lonmax, latmin, latmax]
 
@@ -771,7 +771,7 @@ search: ImportTopo importWKT
   The center of Kigali has latitude=-1.93 and longitude=30.08. We can automatically download the topography with:
 
 ```julia
-julia> Topo = ImportTopo(lat=[-1.95,-1.92], lon=[30.0, 30.1],  file="@earth_relief_01s.grd")
+julia> Topo = import_topo(lat=[-1.95,-1.92], lon=[30.0, 30.1],  file="@earth_relief_01s.grd")
 GMT [WARNING]: Remote dataset given to a data processing module but no registration was specified - default to gridline registration (if available)
 grdblend [ERROR]: Option -V given more than once
 GeoData 
