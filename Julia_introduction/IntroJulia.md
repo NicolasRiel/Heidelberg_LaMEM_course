@@ -807,7 +807,7 @@ ProjectionPoint(0.0, 35.0, 722595.439675681, 0.0, 36, true)
 ```
 Next, we can convert the data to cartesian and save it to disk with:
 ```julia
-julia> Topo_cart = Convert2CartData(Topo,p)
+julia> Topo_cart = convert2CartData(Topo,p)
 CartData 
     size    : (241, 361, 1)
     x       ϵ [ -1115.7215697630252 : 1122.6425618608757]
