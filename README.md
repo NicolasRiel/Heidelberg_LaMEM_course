@@ -45,7 +45,7 @@ How do the models compare to a real case?
 
 | Folding 2D         | Rifting 2D    |
 |--------------|-----------|
-| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/05_folds.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifsy/06_rifting_model_plasticity.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
+| <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/05_folds.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/06_rifting_model_plasticity.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
 
 ### Day 4 (coming up soon!)
 <!--
