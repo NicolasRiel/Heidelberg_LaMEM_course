@@ -1,3 +1,27 @@
+#load CSV for topography exported from paraview
+
+file_path   = "Giza_topo.csv"
+df          = CSV.read(file_path, DataFrame)
+
+x_irregular = df.var"Points:0"
+y_irregular = df.var"Points:1"
+z_irregular = df.var"Points:2"
+
+samples     = z_irregular
+points      = hcat(x_irregular, y_irregular)'
+itp         = interpolate(NearestNeighbor(), points, samples);
+
+# Define the regular grid
+x_regular = range(minimum(x_irregular), stop=maximum(x_irregular), length=nx)
+y_regular = range(minimum(y_irregular), stop=maximum(y_irregular), length=ny)
+
+# Create a grid for the regular data
+grid_x, grid_y  = [vec(repeat(x_regular', length(y_regular))), vec(repeat(y_regular, 1, length(x_regular)))]
+gridPoints      = [grid_x grid_y]'
+interpolated    = evaluate(itp, gridPoints)
+gridded         = reshape(interpolated, ny, nx)
+
+
 # useful commands
 
 sudo apt-get install imagemagick
