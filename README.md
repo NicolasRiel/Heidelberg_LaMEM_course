@@ -150,6 +150,8 @@ How do the models compare to a real/natural case?
 + "Olivine_Peierls-Kameyama_1999"
 
 ## Velocity box
+The code snipped shows how to add a velocity box to a LaMEM model.
+
     vel_box = VelocityBox(      cenX     =   1.0,  # X-coordinate of center of box
                                 cenY     =   1.0,  # Y-coordinate of center of box
                                 cenZ     =   1.0,  # Z-coordinate of center of box
@@ -161,4 +163,4 @@ How do the models compare to a real/natural case?
                                 vz       =   0.0,  # Vz velocity of box (default is unconstrained) 
                                 advect   =   0)    # box advection flag
 
-add_vbox!(model, vel_box)
+    add_vbox!(model, vel_box)
