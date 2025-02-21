@@ -164,3 +164,14 @@ The code snipped shows how to add a velocity box to a LaMEM model.
                                 advect   =   0)    # box advection flag
 
     add_vbox!(model, vel_box)
+
+
+## Inflow - outflow boundary conditions (left-right walls)
+Simple example on how to set in flow/outflow boundary conditions on left and right walls for the lithosphere
+
+    model.BoundaryConditions = BoundaryConditions(  bvel_face                 =         "Left",                         # Face identifier  (Left; Right; Front; Back; CompensatingInflow)
+                                                    bvel_face_out             =         1,                            # Velocity on opposite side: -1 for inverted velocity; 0 for no velocity; 1 for the same direction of velocity
+                                                    bvel_bot                  =        -100.0,                         # bottom coordinate of inflow window
+                                                    bvel_top                  =        0.0,                         # top coordinate of inflow window
+                                                    bvel_velin                =         1.0,              # inflow velocity for each time interval(Multiple values required if  velin_num_periods>1)
+                                                    bvel_velout               =         1.0)                         # outflow velocity (if not specified, computed from mass balance)
