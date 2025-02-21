@@ -1,28 +1,6 @@
 # LaMEM_course Heidelberg (17-21-25)
 
-Set of input scripts to readily learn how to create more complex input setup for LaMEM@0.4.2 (https://github.com/JuliaGeodynamics/LaMEM.jl)
-
-<!--
-# Report
-
-Individual report: 2 pages of text max (figures not included)
-
-* Scientific questions: Why this model? What are you investigating?
-* Describe modelling approach: Model setup, geometry, boundary conditions (top, bottom, etc), thermal and mechanical material properties and investigated parameters.
-* Modelling results: Describe modelling results, including figures produced using paraview.
-* Discussion/perspectives. What did you learn? How can you improve the models, what would be the next step?
-How do the models compare to a real case?
-
-
-> [!IMPORTANT] 
->
-> Explore 1 or 2 parameter range
-> 
-> Hand-over March 31th - 2025
->
-> Attach the Julia script to your report
-
--->
+Set of input scripts to readily learn how to create more complex input setup for LaMEM@0.4.5 (https://github.com/JuliaGeodynamics/LaMEM.jl)
 
 ## Report
 
