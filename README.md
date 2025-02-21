@@ -150,15 +150,15 @@ How do the models compare to a real/natural case?
 + "Olivine_Peierls-Kameyama_1999"
 
 ## Velocity box
-vel_box = VelocityBox(      cenX     =   1.0,  # X-coordinate of center of box
-                            cenY     =   1.0,  # Y-coordinate of center of box
-                            cenZ     =   1.0,  # Z-coordinate of center of box
-                            widthX   =   1.0,  # Width of box in x-direction
-                            widthY   =   2.0,  # Width of box in y-direction
-                            widthZ   =   0.1,  # Width of box in z-direction
-                            vx       =   1.0,  # Vx velocity of box (default is unconstrained)
-                            vy       =   0.0,  # Vy velocity of box (default is unconstrained)
-                            vz       =   0.0,  # Vz velocity of box (default is unconstrained) 
-                            advect   =   0)    # box advection flag
+    vel_box = VelocityBox(      cenX     =   1.0,  # X-coordinate of center of box
+                                cenY     =   1.0,  # Y-coordinate of center of box
+                                cenZ     =   1.0,  # Z-coordinate of center of box
+                                widthX   =   1.0,  # Width of box in x-direction
+                                widthY   =   2.0,  # Width of box in y-direction
+                                widthZ   =   0.1,  # Width of box in z-direction
+                                vx       =   1.0,  # Vx velocity of box (default is unconstrained)
+                                vy       =   0.0,  # Vy velocity of box (default is unconstrained)
+                                vz       =   0.0,  # Vz velocity of box (default is unconstrained) 
+                                advect   =   0)    # box advection flag
 
 add_vbox!(model, vel_box)
