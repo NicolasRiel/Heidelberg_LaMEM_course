@@ -6,10 +6,10 @@ Set of input scripts to readily learn how to create more complex input setup for
 
 Individual report: 3 pages of text max (figures not included)
 
-* Scientific questions: What are you trying to answer/solve? Why this model setup? How can the model setup can help solve the questions? What are the parameters that need to be investigated?
-* Describe modelling approach: Model setup, geometry, boundary conditions (top, bottom, etc), thermal and mechanical material properties and investigated parameters.
-* Modelling results: Describe modelling results, including figures produced using paraview.
-* Discussion/perspectives. What did you learn? What are the limitations? How can it be improved? What would be the next step?
+* **Scientific questions**: What are you trying to answer/solve? Why this model setup? How can the model setup can help solve the questions? What are the parameters that need to be investigated?
+*  **Modelling approach**: Model setup, geometry, boundary conditions (top, bottom, etc), thermal and mechanical material properties and investigated parameters.
+* **Modelling results**: Describe modelling results, including figures produced using paraview.
+* **Discussion/perspectives**: What did you learn? What are the limitations? How can it be improved? What would be the next step?
 How do the models compare to a real/natural case?
 
 > [!IMPORTANT] 
