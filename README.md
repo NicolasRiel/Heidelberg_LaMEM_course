@@ -28,13 +28,14 @@ How do the models compare to a real case?
 
 Individual report: 3 pages of text max (figures not included)
 
-* Scientific questions: Why this model? What are you investigating?
+* Scientific questions: What are you trying to answer/solve? Why this model setup? How can the model setup can help solve the questions? What are the parameters that need to be investigated?
 * Describe modelling approach: Model setup, geometry, boundary conditions (top, bottom, etc), thermal and mechanical material properties and investigated parameters.
 * Modelling results: Describe modelling results, including figures produced using paraview.
-* Discussion/perspectives. What did you learn? How can you improve the models, what would be the next step?
-How do the models compare to a real case?
+* Discussion/perspectives. What did you learn? What are the limitations? How can it be improved? What would be the next step?
+How do the models compare to a real/natural case?
 
 > [!IMPORTANT] 
+> For the figures make sure you have the axis properly labelled, provide colorbar and caption for all fields and contour/glyphs
 > Explore the control of 1 or 2 parameters
 > Hand-over March 29th - 2024
 > Attach the Julia script to your report (send per mail)
