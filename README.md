@@ -13,7 +13,7 @@ Individual report: 3 pages of text max (figures not included)
 How do the models compare to a real/natural case?
 
 > [!IMPORTANT] 
-> For the figures make sure you have the axis properly labelled, provide colorbar and caption for all fields and contour/glyphs
+> For the figures make sure you have the axis properly labelled, provide colorbar and caption for all fields and contour/glyphs. Annotate time (CTRL+SPACE Annotate time)
 > Explore the control of 1 or 2 parameters
 > Hand-over March 29th - 2024
 > Attach the Julia script to your report (send per mail)
