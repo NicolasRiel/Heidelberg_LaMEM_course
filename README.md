@@ -179,23 +179,22 @@ Simple example on how to set in flow/outflow boundary conditions on left and rig
 ## Add topography to LaMEM
 Example showing how to load Askja volcano topography to LaMEM
 
-    Topo = ImportTopo(      lon     =  [-18.0, -15.6],
-                            lat     =  [64.55, 65.55],
-                            file    = "@earth_relief_15s.grd");
+    Topo = import_topo( lat=[64.55,65.55],
+                        lon=[-18.0+360,-15.6+360],
+                        file="@earth_relief_15s.grd")
 
     # choose projection point (center usually)                       
     proj = ProjectionPoint( Lon     = -16.8,
                             Lat     =  65.05);
 
-    Topo_cart = Convert2CartData(Topo, proj)
+    Topo_cart = convert2CartData(Topo, proj)
 
     # Create a grid to be saved
-    Topo_LaMEM = CartData(XYZGrid(-20:.2:20,
+    Topo_LaMEM = CartData(xyz_grid(-20:.2:20,
                                 -20:.2:20,
                                 0         )); 
 
-    Topo_LaMEM = ProjectCartData(   Topo_LaMEM,
+    Topo_LaMEM = project_CartData(   Topo_LaMEM,
                                     Topo, 
                                     proj    )
 
-    plot_topo(Topo_LaMEM, clim=(-2,2))
