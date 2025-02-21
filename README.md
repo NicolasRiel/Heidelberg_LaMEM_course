@@ -198,3 +198,17 @@ Example showing how to load Askja volcano topography to LaMEM
                                     Topo, 
                                     proj    )
 
+
+## Add ridge to add_box!
+
+    add_box!(model;  xlim    = (-2000.0, 0.0), 
+                    ylim    = (model.Grid.coord_y...,), 
+                    zlim    = (-660.0, 0.0),
+                    Origin  = nothing, StrikeAngle=0, DipAngle=0,
+                    phase   = LithosphericPhases(Layers=[20 80], Phases=[1 2 0] ),
+                    T       = SpreadingRateTemp(    Tsurface    = Tair,
+                                                    Tmantle     = Tmantle,
+                                                    MORside     = "left",
+                                                    SpreadingVel= 0.5,
+                                                    AgeRidge    = 0.01;
+                                                    maxAge      = 80.0      ) )
