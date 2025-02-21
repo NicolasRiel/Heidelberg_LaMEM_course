@@ -175,3 +175,27 @@ Simple example on how to set in flow/outflow boundary conditions on left and rig
                                                     bvel_top                  =        0.0,                         # top coordinate of inflow window
                                                     bvel_velin                =         1.0,              # inflow velocity for each time interval(Multiple values required if  velin_num_periods>1)
                                                     bvel_velout               =         1.0)                         # outflow velocity (if not specified, computed from mass balance)
+
+## Add topography to LaMEM
+Example showing how to load Askja volcano topography to LaMEM
+
+    Topo = ImportTopo(      lon     =  [-18.0, -15.6],
+                            lat     =  [64.55, 65.55],
+                            file    = "@earth_relief_15s.grd");
+
+    # choose projection point (center usually)                       
+    proj = ProjectionPoint( Lon     = -16.8,
+                            Lat     =  65.05);
+
+    Topo_cart = Convert2CartData(Topo, proj)
+
+    # Create a grid to be saved
+    Topo_LaMEM = CartData(XYZGrid(-20:.2:20,
+                                -20:.2:20,
+                                0         )); 
+
+    Topo_LaMEM = ProjectCartData(   Topo_LaMEM,
+                                    Topo, 
+                                    proj    )
+
+    plot_topo(Topo_LaMEM, clim=(-2,2))
