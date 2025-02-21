@@ -24,7 +24,20 @@ How do the models compare to a real case?
 
 -->
 
+## Report
 
+Individual report: 3 pages of text max (figures not included)
+
+* Scientific questions: Why this model? What are you investigating?
+* Describe modelling approach: Model setup, geometry, boundary conditions (top, bottom, etc), thermal and mechanical material properties and investigated parameters.
+* Modelling results: Describe modelling results, including figures produced using paraview.
+* Discussion/perspectives. What did you learn? How can you improve the models, what would be the next step?
+How do the models compare to a real case?
+
+> [!IMPORTANT] 
+> Explore the control of 1 or 2 parameters
+> Hand-over March 29th - 2024
+> Attach the Julia script to your report (send per mail)
 
 ## Explored setups
 
@@ -47,12 +60,10 @@ How do the models compare to a real case?
 |--------------|-----------|
 | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/05_folds.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/06_rifting_model_plasticity.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
 
-### Day 4 (coming up soon!)
-<!--
+### Day 4
  | Subduction 2D         |  Landscape Modelling  |
 |--------------|-----------|
 | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/07_mechanical_subduction.gif?raw=true" alt="drawing" width="380" alt="centered image"/> |  <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/mountain_landscape.gif?raw=true" alt="drawing" width="380" alt="centered image"/> |
- -->
 
 ## Tools and tipds
 
