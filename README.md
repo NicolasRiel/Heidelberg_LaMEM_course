@@ -212,3 +212,25 @@ Example showing how to load Askja volcano topography to LaMEM
                                                     SpreadingVel= 0.5,
                                                     AgeRidge    = 0.01;
                                                     maxAge      = 80.0      ) )
+
+## Add fixed temperature box
+    T_box = PhaseTransition(
+        ID                      =   0,                                  # Phase_transition law ID
+        Type                    =   "Box",                              # A box-like region
+        PTBox_Bounds            =   [1980 ,2000, -4, 4, -160, 0.0],     # box bound coordinates: [left, right, front, back, bottom, top]
+        BoxVicinity 			=	1,								    # 1: only check particles in the vicinity of the box boundaries (*2 in all directions)
+        
+        number_phases           =   1,
+        PhaseInside             =   -1,                                 # Phase within the box  [use -1 if you don't want to change the phase inside the box]
+        PhaseOutside            =   -1,                                 # Phase outside the box [use -1 if you don't want to change the phase outside the box. If combined with OutsideToInside, all phases that come in are set to PhaseInside]
+        PhaseDirection          =   "BothWays",                         # [BothWays=default; OutsideToInside; InsideToOutside]
+
+        PTBox_TempType          =   "linear",                           # Temperature condition witin the box [none, constant, linear, halfspace]
+        PTBox_topTemp           =   20,                                 # Temp @ top of box [for linear & halfspace]
+        PTBox_botTemp           =   1280,                               # Temp @ bottom of box [for linear & halfspace]
+        
+        PTBox_thermalAge        =   120,                                # Thermal age, usually in geo-units [Myrs] [only in case of halfspace]
+        PTBox_cstTemp          	=   1200,                               # Temp within box [only for constant T]
+    )
+
+    add_phasetransition!(model, T_box)
