@@ -15,7 +15,7 @@ How do the models compare to a real/natural case?
 > [!IMPORTANT] 
 > For the figures make sure you have the axis properly labelled, provide colorbar and caption for all fields and contour/glyphs. Annotate time (CTRL+SPACE Annotate time)
 > Explore the control of 1 or 2 parameters
-> Hand-over March 29th - 2024
+> Hand-over March 29th - 2025 (Group 1) April 29th - 2025 (Group 2)
 > Attach the Julia script to your report (send per mail)
 
 ## Explored setups
@@ -25,7 +25,7 @@ How do the models compare to a real/natural case?
 | Falling blocks 3D         | Falling block 2D     |
 |--------------|-----------|
 | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/00_falling_block_3D.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/01_falling_block_isoviscous.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
-
+<!--
 ### Day 2
 
 | Falling block - free surface 2D         | Plume emplacement - stagnant LID 2D    |
@@ -43,7 +43,7 @@ How do the models compare to a real/natural case?
  | Subduction 2D         |  Landscape Modelling  |
 |--------------|-----------|
 | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/07_mechanical_subduction.gif?raw=true" alt="drawing" width="380" alt="centered image"/> |  <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/mountain_landscape.gif?raw=true" alt="drawing" width="380" alt="centered image"/> |
-
+-->
 ## Tools and tipds
 
 ####  Introduction for Julia programming language
