@@ -25,13 +25,13 @@ How do the models compare to a real/natural case?
 | Falling blocks 3D         | Falling block 2D     |
 |--------------|-----------|
 | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/00_falling_block_3D.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/01_falling_block_isoviscous.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
-<!--
+
 ### Day 2
 
 | Falling block - free surface 2D         | Plume emplacement - stagnant LID 2D    |
 |--------------|-----------|
 | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/03_T-falling_block_iso_viscous_free_surface.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/04b_single_LID_plume_with_tracers.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
-
+<!--
 ### Day 3
 
 
