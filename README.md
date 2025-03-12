@@ -31,13 +31,14 @@ How do the models compare to a real/natural case?
 | Falling block - free surface 2D         | Plume emplacement - stagnant LID 2D    |
 |--------------|-----------|
 | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/03_T-falling_block_iso_viscous_free_surface.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/04b_single_LID_plume_with_tracers.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
-<!--
-### Day 3
 
+### Day 3
 
 | Folding 2D         | Rifting 2D    |
 |--------------|-----------|
 | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/05_folds.gif?raw=true" alt="drawing" width="380" alt="centered image"/> | <img src="https://github.com/NicolasRiel/Heidelberg_LaMEM_course/blob/main/gifs/06_rifting_model_plasticity.gif?raw=true" alt="drawing" width="380" alt="centered image"/>  |
+
+<!--
 
 ### Day 4
  | Subduction 2D         |  Landscape Modelling  |
