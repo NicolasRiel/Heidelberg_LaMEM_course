@@ -331,3 +331,21 @@ Example showing how to load Askja volcano topography to LaMEM
     )
 
     add_phasetransition!(model, T_box_minX)
+
+## Polygon custom function
+
+    julias> ] add PolygonOps
+
+### example of application
+    using PolygonOps
+    
+    craton  = [26.460546282245843 -408.0; -108.31183611532644 -350.84824902723756; -165.4666160849772 -220.31647211413767; -202.15857359635842 -66.14785992217901; -232.5 124.71076523994827; -153.1183611532625 287.69909208819706; -43.042488619120064 397.7691309987031; 61.03566009104691 408.0; 151.00151745068274 375.5434500648511; 232.5 302.16342412451354; 232.5 210.438391699092; 169.34749620637336 104.24902723735397; 153.11836115326247 0.17639429312561106; 126.30500758725333 -210.08560311284035; 107.9590288315631 -340.61738002594024; 65.26934749620642 -391.41893644617403;26.460546282245843 -408.0]
+    xp      = craton[:,1]
+    zp      = craton[:,2]
+
+    polygon = [[x,z] for (x,z) in zip(xp,zp)]
+    inside  = [inpolygon([x,z], polygon) for (x,z) in zip(X,Y)]
+
+    model.Grid.Phases[inside .== true .&& Z .> -20.0 .&& Z .<=  0.0] .= 5
+    model.Grid.Phases[inside .== true .&& Z .> -40.0 .&& Z .<= -20.0] .= 6
+    model.Grid.Phases[inside .== true .&& Z .> -200.0 .&& Z .<= -40.0] .= 7
