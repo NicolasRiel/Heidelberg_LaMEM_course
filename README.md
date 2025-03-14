@@ -238,7 +238,7 @@ Example showing how to load Askja volcano topography to LaMEM
 
 ## Solver options
 
-Solver(  SolverType      = "multigrid",
+    Solver(  SolverType      = "multigrid",
 
                         PETSc_options   = [ "-snes_max_it 50 ",
                                             "-snes_type newtonls ",
@@ -283,3 +283,51 @@ Solver(  SolverType      = "multigrid",
                                             "-da_refine_y 1 ",
                                         ]
                     )
+
+## Inflow boundary conditions with temperature control
+
+    BoundaryConditions( temp_top        = 20.0,
+                    temp_bot        = 1480.0, 
+                    open_top_bound  = 1,                        # we do not want a freesurface, yet!
+                    noslip          = [0, 0, 0, 0, 0, 0],       # [left, right, front, back, bottom, top]
+
+                    bvel_face                 =         "Left",                       # Face identifier  (Left; Right; Front; Back; CompensatingInflow)
+                    bvel_face_out             =         -1,                           # Velocity on opposite side: -1 for inverted velocity; 0 for no velocity; 1 for the same direction of velocity
+                    bvel_bot                  =        -140.0,                        # bottom coordinate of inflow window
+                    bvel_top                  =         50.0,                          # top coordinate of inflow window
+
+                    velin_num_periods         =         2,
+                    velin_time_delims         =        [100.0,200.0],
+                    bvel_velin                =        [2.0,2.0],
+
+                    ),
+
+###  Boundary temperature control
+
+    T_box_maxX = PhaseTransition(
+        ID                      =   0,                                  # Phase_transition law ID
+        Type                    =   "Box",                              # A box-like region
+        PTBox_Bounds            =   [model.Grid.coord_x[2]-40.0, model.Grid.coord_x[2], model.Grid.coord_y[1], model.Grid.coord_y[2], -120.0, 0.0],     # box bound coordinates: [left, right, front, back, bottom, top]
+        BoxVicinity             =    1,                                 # 1: only check particles in the vicinity of the box boundaries (*2 in all directions)
+
+        PTBox_TempType          =   "halfspace",                        # Temperature condition witin the box [none, constant, linear, halfspace]
+        PTBox_topTemp           =   20.0,                               # Temp @ top of box [for linear & halfspace]
+        PTBox_botTemp           =   1300.0,                             # Temp @ bottom of box [for linear & halfspace]
+        PTBox_thermalAge        =   100,                               # Thermal age, usually in geo-units [Myrs] [only in case of halfspace]
+    )
+
+    add_phasetransition!(model, T_box_maxX)
+
+    T_box_minX = PhaseTransition(
+        ID                      =   1,                                  # Phase_transition law ID
+        Type                    =   "Box",                              # A box-like region
+        PTBox_Bounds            =   [model.Grid.coord_x[1], model.Grid.coord_x[1]+40.0, model.Grid.coord_y[1], model.Grid.coord_y[2], -120.0, 0.0],     # box bound coordinates: [left, right, front, back, bottom, top]
+        BoxVicinity             =    1,                                 # 1: only check particles in the vicinity of the box boundaries (*2 in all directions)
+
+        PTBox_TempType          =   "halfspace",                        # Temperature condition witin the box [none, constant, linear, halfspace]
+        PTBox_topTemp           =   20.0,                               # Temp @ top of box [for linear & halfspace]
+        PTBox_botTemp           =   1300.0,                             # Temp @ bottom of box [for linear & halfspace]
+        PTBox_thermalAge        =   100,                               # Thermal age, usually in geo-units [Myrs] [only in case of halfspace]
+    )
+
+    add_phasetransition!(model, T_box_minX)
