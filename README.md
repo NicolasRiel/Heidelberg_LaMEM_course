@@ -1,10 +1,11 @@
-# LaMEM_course Heidelberg (17-21-25)
+# LaMEM_course Heidelberg (16/20-02-26)
+Monday-Friday 9:00-12:00 13:30-16:30
 
-Set of input scripts to readily learn how to create more complex input setup for LaMEM@0.4.5 (https://github.com/JuliaGeodynamics/LaMEM.jl)
+Set of input scripts to readily learn how to create more complex input setup for LaMEM v0.4.12 (https://github.com/JuliaGeodynamics/LaMEM.jl)
 
 ## Report
 
-Individual report: 3 pages of text max (figures not included)
+Individual report: 3 pages of text max (figures not included, you can put as many figure as needed)
 
 * **Scientific questions**: What are you trying to answer/solve? Why this model setup? How can the model setup can help solve the questions? What are the parameters that need to be investigated?
 *  **Modelling approach**: Model setup, geometry, boundary conditions (top, bottom, etc), thermal and mechanical material properties and investigated parameters.
@@ -15,7 +16,7 @@ How do the models compare to a real/natural case?
 > [!IMPORTANT] 
 > For the figures make sure you have the axis properly labelled, provide colorbar and caption for all fields and contour/glyphs. Annotate time (CTRL+SPACE Annotate time)
 > Explore the control of 1 or 2 parameters
-> Hand-over March 29th - 2025 (Group 1) April 29th - 2025 (Group 2)
+> Hand-over March 29th - 2026
 > Attach the Julia script to your report (send per mail)
 
 ## Explored setups
