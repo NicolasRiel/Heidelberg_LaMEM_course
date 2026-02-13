@@ -1,3 +1,6 @@
 output*
 gif*
 Timestep*
+Manifest.toml
+**/.DS_Store
+**/.vscode
